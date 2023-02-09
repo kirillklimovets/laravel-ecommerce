@@ -1,0 +1,5 @@
+// Hide all currency labels until they will be formatted.
+[data-type="currency"] {
+    opacity: 0;
+    transition: opacity .5s ease;
+}

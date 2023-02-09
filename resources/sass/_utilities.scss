@@ -1,0 +1,34 @@
+$utilities: (
+    'height': (
+        property: height,
+        class: 'hem',
+        values: (
+            0: 0em,
+            1: 1em,
+            2: 2em,
+            3: 3em,
+            4: 4em,
+            5: 5em,
+        ),
+    ),
+    'object-fit': (
+        property: object-fit,
+        class: 'of',
+        values: cover contain fill none scale-down inherit initial revert unset,
+    ),
+    'aspect-ratio': (
+        property: aspect-ratio,
+        class: 'ar',
+        values: (
+            1: 1,
+            '4-3': calc(4 / 3),
+            '16-9': calc(16 / 9),
+            '13-6': calc(13 / 6),
+        ),
+    ),
+    'list-style': (
+        property: list-style,
+        class: 'list-style',
+        values: square inside none inherit initial revert unset,
+    ),
+);

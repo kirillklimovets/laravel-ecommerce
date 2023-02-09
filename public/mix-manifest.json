@@ -1,0 +1,12 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/js/slider.js": "/js/slider.js",
+    "/js/checkout.js": "/js/checkout.js",
+    "/js/input-mask.js": "/js/input-mask.js",
+    "/js/cart.js": "/js/cart.js",
+    "/js/algolia.js": "/js/algolia.js",
+    "/css/app.css": "/css/app.css",
+    "/css/success.css": "/css/success.css",
+    "/css/shop.css": "/css/shop.css",
+    "/css/landing.css": "/css/landing.css"
+}

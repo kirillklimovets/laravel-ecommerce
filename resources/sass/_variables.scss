@@ -1,0 +1,25 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/utilities";
+
+// Typography
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+$spacers: map-merge((
+    6: ($spacer * 4),
+    7: ($spacer * 5),
+    8: ($spacer * 6),
+    9: ($spacer * 7)
+), $spacers);
+
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $green-400,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark
+);

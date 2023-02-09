@@ -1,0 +1,433 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use TCG\Voyager\Models\Menu;
+use TCG\Voyager\Models\MenuItem;
+
+class MenuItemsTableSeederCustom extends Seeder
+{
+    /**
+     * Auto generated seed file.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        if (file_exists(base_path('routes/web.php'))) {
+            require base_path('routes/web.php');
+
+            /*
+            |--------------------------------------------------------------------------
+            | Admin Menu
+            |--------------------------------------------------------------------------
+            */
+
+            $menu = Menu::where('name', 'admin')->firstOrFail();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Панель управления',
+                'url'     => '',
+                'route'   => 'voyager.dashboard',
+            ]);
+
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-boat',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 1,
+            ])->save();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Заказы',
+                'url'     => '/admin/orders',
+                'route'   => null,
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => 'voyager-documentation',
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 2,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Продукты',
+                'url'     => '/admin/products',
+                'route'   => null,
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => 'voyager-bag',
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 3,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'категории',
+                'url'     => '/admin/category',
+                'route'   => null,
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => 'voyager-tag',
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 4,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Купоны',
+                'url'     => '/admin/coupons',
+                'route'   => null,
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => 'voyager-dollar',
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 5,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'категории и продукты',
+                'url'     => '/admin/category-product',
+                'route'   => null,
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => 'voyager-categories',
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 6,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Роли',
+                'url'     => '',
+                'route'   => 'voyager.roles.index',
+            ]);
+
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-lock',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 7,
+            ])->save();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Пользователи',
+                'url'     => '',
+                'route'   => 'voyager.users.index',
+            ]);
+
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-person',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 8,
+            ])->save();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Медиа',
+                'url'     => '',
+                'route'   => 'voyager.media.index',
+            ]);
+
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-images',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 9,
+            ])->save();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Записи',
+                'url'     => '',
+                'route'   => 'voyager.posts.index',
+            ]);
+
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-news',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 10,
+            ])->save();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Страницы',
+                'url'     => '',
+                'route'   => 'voyager.pages.index',
+            ]);
+
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-file-text',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 11,
+            ])->save();
+
+            $toolsMenuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Инструменты',
+                'url'     => '',
+            ]);
+
+            $toolsMenuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-tools',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 12,
+            ])->save();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Настройки',
+                'url'     => '',
+                'route'   => 'voyager.settings.index',
+            ]);
+
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-settings',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 13,
+            ])->save();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Категории',
+                'url'     => '',
+                'route'   => 'voyager.categories.index',
+            ]);
+
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-categories',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 14,
+            ])->save();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Конструктор меню',
+                'url'     => '',
+                'route'   => 'voyager.menus.index',
+            ]);
+
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-list',
+                'color'      => null,
+                'parent_id'  => $toolsMenuItem->id,
+                'order'      => 1,
+            ])->save();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'База данных',
+                'url'     => '',
+                'route'   => 'voyager.database.index',
+            ]);
+
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-data',
+                'color'      => null,
+                'parent_id'  => $toolsMenuItem->id,
+                'order'      => 2,
+            ])->save();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Compass',
+                'url'     => '',
+                'route'   => 'voyager.compass.index',
+            ]);
+
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-compass',
+                'color'      => null,
+                'parent_id'  => $toolsMenuItem->id,
+                'order'      => 3,
+            ])->save();
+
+            /*
+            |--------------------------------------------------------------------------
+            | Main Menu
+            |--------------------------------------------------------------------------
+            */
+
+            $menu = Menu::where('name', 'main')->firstOrFail();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Каталог',
+                'url'     => '',
+                'route'   => 'shop.index',
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => null,
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 1,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Информация',
+                'url'     => '',
+                'route'   => 'information.index',
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => null,
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 2,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Блог',
+                'url'     => '#',
+                'route'   => null,
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => null,
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 2,
+                ])->save();
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | Footer Menu
+            |--------------------------------------------------------------------------
+            */
+
+            $menu = Menu::where('name', 'footer')->firstOrFail();
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Главная',
+                'url'     => '',
+                'route'   => 'landing.index',
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => null,
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 1,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Каталог',
+                'url'     => '',
+                'route'   => 'shop.index',
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => null,
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 2,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Информация',
+                'url'     => '',
+                'route'   => 'information.index',
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => null,
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 3,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Блог',
+                'url'     => '#',
+                'route'   => null,
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => null,
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 4,
+                ])->save();
+            }
+
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Корзина',
+                'url'     => '',
+                'route'   => 'cart.index',
+            ]);
+            if ( ! $menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => null,
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 5,
+                ])->save();
+            }
+        }
+    }
+}

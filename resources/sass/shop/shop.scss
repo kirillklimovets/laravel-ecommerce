@@ -1,0 +1,18 @@
+.thumbnail-swiper .swiper-slide {
+    opacity: 0.4;
+    transition: opacity .2s ease;
+}
+
+.thumbnail-swiper .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+.product-main-image {
+    height: 300px;
+    width: 100%;
+}
+
+.product-thumb-image {
+    height: 60px;
+    width: 100%;
+}

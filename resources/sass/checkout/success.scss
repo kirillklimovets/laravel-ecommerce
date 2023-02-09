@@ -1,0 +1,21 @@
+@keyframes text-animation {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.thank-you-title {
+    background: linear-gradient(-45deg, #ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff);
+    background-size: 300%;
+    font-size: 5rem;
+    font-weight: 700;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-animation 10s ease-in-out infinite;
+}

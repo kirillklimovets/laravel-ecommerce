@@ -1,0 +1,50 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->nullOnDelete();
+
+            $table->string('billing_email')->nullable();
+            $table->string('billing_name')->nullable();
+            $table->string('billing_address_line1')->nullable();
+            $table->string('billing_address_line2')->nullable();
+            $table->string('billing_city')->nullable();
+            $table->string('billing_state')->nullable();
+            $table->string('billing_postal_code')->nullable();
+            $table->string('billing_phone')->nullable();
+
+            $table->integer('billing_discount')->default(0);
+            $table->string('billing_discount_code')->nullable();
+            $table->integer('billing_subtotal')->nullable();
+            $table->integer('billing_tax')->nullable();
+            $table->integer('billing_total')->nullable();
+            $table->string('payment_gateway')->default('stripe');
+
+            $table->boolean('shipped')->default(false);
+            $table->string('error')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('orders');
+    }
+};
